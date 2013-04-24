@@ -30,6 +30,7 @@ Testing
 '''
 # import statements, imports libraries of functions
 import os
+'''
 import math
 import pylab
 from matplotlib.patches import Ellipse
@@ -38,35 +39,14 @@ import stereoplot
 import coreanalysis
 import siteanalysis
 import haversine
+'''
 def paleomag2(currentdir):
-    """
-    #finds filepath to allow import of the text file, finds filename, and opens the datafile
-    #filepath = sys.argv[1] #takes the first argument and stores it as filepath. The first argument will be the filepath of what is drag and droped onto the script
-    """
-    print 'Before we begin, make sure all of your text files are named correctly.' 
-    print 'For example, VA12-05G.txt is a correctly named file. If it is not named just like this the script will not work properly'
-    print 'But you will may get results anyways! Wrong results! Also note that the .txt is lowercase. It would be more trouble to '
-    print 'Have this work with lower and uppercase than it is to have it one way or the other based on how the machine outputs.'
-    print 'The text files also need to be formatted properly. If you mucked around with them while making the data make sure they are fixed'
-    print 'Make sure that each demag step entry has exactly 20 lines and with two blank in between each step.'
-    print 'If you forgot to add something like TECT. ANGLES you need to add in a blank line everywhere it should have appeared'
-    print ''
-    print 'Enter the maximum error percentage as a number'
-    print '5 is a good choice'
-    
-    maxerror = input()  # accepts a max error input. If debugging, comment this line out and uncomment the next line which gives maxerror a value.
-    # If the program has an error with a traceback going to a line with sommething like ud[-1] that means the max error needs to be raised
-    print 'Enter a max angle for the pick sensitivity factor.'
-    print 'This selects all slopes of lines within plus or minus the angle'
-    maxangle = input()
-    maxangler = math.radians(maxangle)
-    
-    # currentdir = os.getcwd() + "\\"  # gets the current working directory #Current dir is now given to the program by the user in the GUI
     n = 0
     filepath = []  # creates lists. A list only exists in the area where it was created, so if it is no tabs in like these are, the list exists throughout the entire program, while if it was one tab in it only exists in that smaller section of the code.
     textfilename = []
     # this loop thing finds all of the files in the directory with .txt in their nameand adds their names (e.g VA12-05A.txt) to a list
-    for files in os.listdir("."):
+   
+    for files in os.listdir(currentdir):
         if files.endswith(".txt"):
             filepath.append(files)
     textfilename = filepath  # Since things changed from previous versions, this is a quick fix to let the old program be used for multiple files the way that I've done it
@@ -85,11 +65,14 @@ def paleomag2(currentdir):
     dpslist = []
     si = 0  
     Dmsitelist = []
-    Imsitelist = []
-    
+    Imsitelist = []    
     # this loop puts the whole file path infront of the names that were found in the last loop above 
+    
     for n in range (0, len(filepath)):
         filepath[n] = currentdir + filepath[n]
+    
+    return sites, filepath, textfilename, cores,
+    '''
     # Basic control flow  in this program: Two tabs in deals with individual cores e.g. VA12-05A, one tab in deals with a site e.g. VA12-05, and no tabs in deals with the entire suite e.g. VA12 
     for si in range(0, len(sites)):    
         NSSUM = 0
@@ -139,16 +122,5 @@ def paleomag2(currentdir):
     
     stereoplot.stereoplot(Dmsitelist, Imsitelist, sites)
     pylab.show()
-    '''
-    os.getcwd()
-    pdftodelete=[]
-    for files in os.listdir("."):
-        if files.endswith("zf.pdf") or files.endswith("magnitudeplot.pdf") or files.endswith("stereonet.pdf") or files.endswith("table.pdf"):
-            pdftodelete.append(files)
-            
-    for foo in range(0,len(pdftodelete)):
-        os.remove(pdftodelete[foo])'''
-    print 'Done'
-    print 'Press any key to exit'
-    input()
-        
+
+     '''

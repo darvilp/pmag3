@@ -27,7 +27,12 @@ localFile.close()
 import sys
 pipscript = open("packageinstaller.bat", 'w')
 pipscript.writelines('cd ' + sys.executable.rstrip('python.exe') + "scripts\\\n")
-pipscript.writelines('pip install numpy matplotlib scipy ipython pypdf sphinx reportlab\n')
+pipscript.writelines('pip install ipython \n')
+pipscript.writelines('pip install pypdf  \n')
+pipscript.writelines('pip install sphinx \n')
+pipscript.writelines('pip install reportlab \n')
+pipscript.writelines('pip install PIL  \n')
+pipscript.writelines('pip install wx \n')
 pipscript.writelines('pip install http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.6/basemap-1.0.6.tar.gz/download')
 pipscript.close()
 
