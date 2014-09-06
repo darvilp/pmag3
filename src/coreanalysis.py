@@ -298,9 +298,9 @@ def coreanalysis(si, sites, filepath, i, coresinsitelist, textfilename, maxerror
                 while flow == 1:
                     print 'There are ' + str(len(thetalistew)) + ' slope segments steps for this core'
                     print 'Enter the number of the segments you want to use'
-                    pylab.show(block=False)
+                    # pylab.show(block=False)
                     pylab.savefig(cores[i] + "Zijderveld.png")
-                    lng = input()            
+                    # lng = input()            
                     for n in range(0, lng):  # basically, compares the slopes of the lines to see if they are similar. Puts a 1 if similar and 0 if not 
                         cp = []
                         cp2 = []
@@ -378,7 +378,7 @@ def coreanalysis(si, sites, filepath, i, coresinsitelist, textfilename, maxerror
                     pylab.savefig(textfilename[i].strip(".txt") + 'highcoerc' + ".png")
                     print 'Are you satisfied with this as the high coercivity part?'
                     print 'Close the figures and enter y/n'    
-                    pylab.show(block=False)  # Known bug here where the figure is not renumbered correctly if n is said
+                    # pylab.show(block=False)  # Known bug here where the figure is not renumbered correctly if n is said
                     answer = raw_input()  
                     if answer == 'y':
                         flow = 0
@@ -411,7 +411,7 @@ def coreanalysis(si, sites, filepath, i, coresinsitelist, textfilename, maxerror
                     zfhcp = pylab.plot(nshcoerce,negewhcoerce,"-o") + pylab.plot(nshcoerce,negudhcoerce,"-o")
                     pylab.savefig(textfilename[i].strip(".txt")+'highcoerc'+".png")
                     print 'Here is your new plot'                                
-                    pylab.show(block=False)
+                    #pylab.show(block=False)
                 '''
                 # Find the high coercivity dec and incl
                 # create the high coerce arrays

@@ -70,8 +70,8 @@ def paleomag2(currentdir):
     
     for n in range (0, len(filepath)):
         filepath[n] = currentdir + filepath[n]
-    
-    return sites, filepath, textfilename, cores,
+    dirpath = currentdir
+    return sites, filepath, textfilename, cores, dirpath
     '''
     # Basic control flow  in this program: Two tabs in deals with individual cores e.g. VA12-05A, one tab in deals with a site e.g. VA12-05, and no tabs in deals with the entire suite e.g. VA12 
     for si in range(0, len(sites)):    
